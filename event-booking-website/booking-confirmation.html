@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Booking confirmed — Marquee</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="booking-confirmation">
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <nav class="navbar" aria-label="Main">
+    <a class="brand" href="index.html">
+      <span class="brand-mark" aria-hidden="true">M</span>
+      Marquee
+    </a>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="primary-nav">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+    </button>
+    <ul class="nav-links" id="primary-nav">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="events.html">Events</a></li>
+      <li><a href="my-bookings.html">My Bookings</a></li>
+    </ul>
+    <div class="nav-auth">
+      <span id="nav-guest">
+        <a class="link-plain" href="login.html">Log in</a>
+        <a class="btn btn-primary btn-sm" href="register.html" style="margin-left:14px;">Sign up</a>
+      </span>
+      <span id="nav-user" class="nav-user" hidden>
+        <span class="nav-user-name"><span class="nav-avatar" id="nav-user-avatar"></span><span id="nav-user-name"></span></span>
+        <button class="btn btn-outline-light btn-sm" id="logout-btn">Log out</button>
+      </span>
+    </div>
+  </nav>
+</header>
+
+<main id="main">
+
+  <div id="confirmation-not-found" hidden>
+    <div class="container">
+      <div class="empty-state mt-lg" style="margin:70px auto; max-width:520px;">
+        <div class="empty-icon">🎟️</div>
+        <h3>No confirmation found</h3>
+        <p>We couldn't find that booking. It may have been cancelled, or the link is incorrect.</p>
+        <a class="btn btn-primary" href="events.html" style="margin-top:14px;">Browse events</a>
+      </div>
+    </div>
+  </div>
+
+  <div id="confirmation-root" class="confirm-wrap">
+    <div class="confirm-icon" aria-hidden="true">
+      <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+    </div>
+    <h1>You're booked!</h1>
+    <p>A confirmation for <strong id="confirm-event-title"></strong> has been saved to your account. Keep your booking ID handy — you can look it up any time from My Bookings.</p>
+
+    <div class="confirm-card">
+      <div class="confirm-card-row"><span>Booking ID</span><span id="confirm-booking-id"></span></div>
+      <div class="confirm-card-row"><span>Date</span><span id="confirm-date"></span></div>
+      <div class="confirm-card-row"><span>Time</span><span id="confirm-time"></span></div>
+      <div class="confirm-card-row"><span>Location</span><span id="confirm-location"></span></div>
+      <div class="confirm-card-row"><span>Price</span><span id="confirm-price"></span></div>
+      <div class="confirm-card-row"><span>Booked on</span><span id="confirm-booked-at"></span></div>
+    </div>
+
+    <div class="confirm-actions">
+      <a class="btn btn-primary" href="my-bookings.html">View my bookings</a>
+      <a class="btn btn-outline" href="events.html">Browse more events</a>
+    </div>
+  </div>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-bottom" style="border-top:none; padding-top:0;">
+      <span>© <span id="footer-year"></span> Marquee. Demo data only — no real bookings are made.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/script.js"></script>
+</body>
+</html>

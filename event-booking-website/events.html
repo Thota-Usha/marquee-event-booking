@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Browse events — Marquee</title>
+<meta name="description" content="Search and filter every event on Marquee by category, location, date, and price.">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="events">
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <nav class="navbar" aria-label="Main">
+    <a class="brand" href="index.html">
+      <span class="brand-mark" aria-hidden="true">M</span>
+      Marquee
+    </a>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="primary-nav">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+    </button>
+    <ul class="nav-links" id="primary-nav">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="events.html" aria-current="page">Events</a></li>
+      <li><a href="my-bookings.html">My Bookings</a></li>
+    </ul>
+    <div class="nav-auth">
+      <span id="nav-guest">
+        <a class="link-plain" href="login.html">Log in</a>
+        <a class="btn btn-primary btn-sm" href="register.html" style="margin-left:14px;">Sign up</a>
+      </span>
+      <span id="nav-user" class="nav-user" hidden>
+        <span class="nav-user-name"><span class="nav-avatar" id="nav-user-avatar"></span><span id="nav-user-name"></span></span>
+        <button class="btn btn-outline-light btn-sm" id="logout-btn">Log out</button>
+      </span>
+    </div>
+  </nav>
+</header>
+
+<main id="main">
+  <div class="page-heading">
+    <div class="container">
+      <h1>Browse events</h1>
+      <p>Search by keyword, then narrow it down with filters. Results update as you type.</p>
+    </div>
+  </div>
+
+  <section class="section" style="padding-top:28px;">
+    <div class="container">
+
+      <form class="filters-bar" role="search" aria-label="Filter events" onsubmit="return false;">
+        <div class="field">
+          <label for="filter-search">Keyword</label>
+          <input type="text" id="filter-search" placeholder="Search title, city, or description">
+        </div>
+        <div class="field">
+          <label for="filter-category">Category</label>
+          <select id="filter-category"></select>
+        </div>
+        <div class="field">
+          <label for="filter-location">Location</label>
+          <select id="filter-location"></select>
+        </div>
+        <div class="field">
+          <label for="filter-date">On or after</label>
+          <input type="date" id="filter-date">
+        </div>
+        <div class="field">
+          <label for="filter-sort">Sort by</label>
+          <select id="filter-sort">
+            <option value="date-asc">Date (soonest)</option>
+            <option value="price-asc">Price (low to high)</option>
+            <option value="price-desc">Price (high to low)</option>
+            <option value="name-asc">Name (A–Z)</option>
+          </select>
+        </div>
+        <button type="button" class="btn btn-outline" id="filter-clear">Clear</button>
+      </form>
+
+      <div class="results-summary" id="results-summary" aria-live="polite"></div>
+
+      <div class="event-grid skeleton-grid" id="events-grid" aria-live="polite"></div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true">M</span>Marquee</a>
+        <p>A discovery and booking platform for events worth showing up for — technology, music, workshops, sports, and culture, all in one place.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="events.html">All events</a></li>
+          <li><a href="events.html?category=Technology">Technology</a></li>
+          <li><a href="events.html?category=Music">Music</a></li>
+          <li><a href="events.html?category=Workshop">Workshops</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Account</h4>
+        <ul>
+          <li><a href="login.html">Log in</a></li>
+          <li><a href="register.html">Create account</a></li>
+          <li><a href="my-bookings.html">My bookings</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Support</h4>
+        <ul>
+          <li><a href="#">Help center</a></li>
+          <li><a href="#">Contact us</a></li>
+          <li><a href="#">Terms &amp; privacy</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span id="footer-year"></span> Marquee. Demo data only — no real bookings are made.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/script.js"></script>
+</body>
+</html>

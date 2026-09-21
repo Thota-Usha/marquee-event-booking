@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Create account — Marquee</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="register">
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <nav class="navbar" aria-label="Main">
+    <a class="brand" href="index.html">
+      <span class="brand-mark" aria-hidden="true">M</span>
+      Marquee
+    </a>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="primary-nav">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+    </button>
+    <ul class="nav-links" id="primary-nav">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="events.html">Events</a></li>
+      <li><a href="my-bookings.html">My Bookings</a></li>
+    </ul>
+    <div class="nav-auth">
+      <span id="nav-guest">
+        <a class="link-plain" href="login.html">Log in</a>
+        <a class="btn btn-primary btn-sm" href="register.html" aria-current="page" style="margin-left:14px;">Sign up</a>
+      </span>
+      <span id="nav-user" class="nav-user" hidden>
+        <span class="nav-user-name"><span class="nav-avatar" id="nav-user-avatar"></span><span id="nav-user-name"></span></span>
+        <button class="btn btn-outline-light btn-sm" id="logout-btn">Log out</button>
+      </span>
+    </div>
+  </nav>
+</header>
+
+<main id="main">
+  <div class="auth-shell">
+    <div class="auth-visual">
+      <span class="brand" style="color:#fff;"><span class="brand-mark" aria-hidden="true">M</span>Marquee</span>
+      <blockquote>
+        “Five categories, one account, zero spreadsheets to track my tickets.”
+        <cite>— A Marquee attendee</cite>
+      </blockquote>
+    </div>
+    <div class="auth-form-side">
+      <form class="auth-form" id="register-form" novalidate>
+        <h1>Create your account</h1>
+        <p>Sign up to start booking events in a few clicks.</p>
+
+        <div class="form-banner is-error" id="register-banner" hidden></div>
+
+        <div class="form-row">
+          <label for="register-name">Full name</label>
+          <input type="text" id="register-name" autocomplete="name" required>
+          <div class="field-error" id="register-name-error"></div>
+        </div>
+        <div class="form-row">
+          <label for="register-email">Email address</label>
+          <input type="email" id="register-email" autocomplete="email" required>
+          <div class="field-error" id="register-email-error"></div>
+        </div>
+        <div class="form-row">
+          <label for="register-password">Password</label>
+          <input type="password" id="register-password" autocomplete="new-password" required>
+          <div class="field-error" id="register-password-error"></div>
+        </div>
+        <div class="form-row">
+          <label for="register-confirm">Confirm password</label>
+          <input type="password" id="register-confirm" autocomplete="new-password" required>
+          <div class="field-error" id="register-confirm-error"></div>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-block" id="register-submit">Create account</button>
+
+        <p class="form-foot">Already have an account? <a href="login.html">Log in</a></p>
+      </form>
+    </div>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-bottom" style="border-top:none; padding-top:0;">
+      <span>© <span id="footer-year"></span> Marquee. Demo data only — no real accounts are created.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/script.js"></script>
+</body>
+</html>

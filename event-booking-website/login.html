@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Log in — Marquee</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="login">
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <nav class="navbar" aria-label="Main">
+    <a class="brand" href="index.html">
+      <span class="brand-mark" aria-hidden="true">M</span>
+      Marquee
+    </a>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="primary-nav">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+    </button>
+    <ul class="nav-links" id="primary-nav">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="events.html">Events</a></li>
+      <li><a href="my-bookings.html">My Bookings</a></li>
+    </ul>
+    <div class="nav-auth">
+      <span id="nav-guest">
+        <a class="link-plain" href="login.html" aria-current="page">Log in</a>
+        <a class="btn btn-primary btn-sm" href="register.html" style="margin-left:14px;">Sign up</a>
+      </span>
+      <span id="nav-user" class="nav-user" hidden>
+        <span class="nav-user-name"><span class="nav-avatar" id="nav-user-avatar"></span><span id="nav-user-name"></span></span>
+        <button class="btn btn-outline-light btn-sm" id="logout-btn">Log out</button>
+      </span>
+    </div>
+  </nav>
+</header>
+
+<main id="main">
+  <div class="auth-shell">
+    <div class="auth-visual">
+      <span class="brand" style="color:#fff;"><span class="brand-mark" aria-hidden="true">M</span>Marquee</span>
+      <blockquote>
+        “Booking took less time than deciding what to wear.”
+        <cite>— A Marquee attendee</cite>
+      </blockquote>
+    </div>
+    <div class="auth-form-side">
+      <form class="auth-form" id="login-form" novalidate>
+        <h1>Welcome back</h1>
+        <p>Log in to book events and manage your tickets.</p>
+
+        <div class="form-banner is-success" id="redirect-banner" hidden></div>
+        <div class="form-banner is-error" id="login-banner" hidden></div>
+
+        <div class="form-row">
+          <label for="login-email">Email address</label>
+          <input type="email" id="login-email" autocomplete="email" required>
+          <div class="field-error" id="login-email-error"></div>
+        </div>
+        <div class="form-row">
+          <label for="login-password">Password</label>
+          <input type="password" id="login-password" autocomplete="current-password" required>
+          <div class="field-error" id="login-password-error"></div>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-block" id="login-submit">Log in</button>
+
+        <p class="form-foot">Don't have an account? <a href="register.html">Create one</a></p>
+      </form>
+    </div>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-bottom" style="border-top:none; padding-top:0;">
+      <span>© <span id="footer-year"></span> Marquee. Demo data only — no real accounts are created.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/script.js"></script>
+</body>
+</html>

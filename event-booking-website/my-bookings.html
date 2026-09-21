@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My bookings — Marquee</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="my-bookings">
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <nav class="navbar" aria-label="Main">
+    <a class="brand" href="index.html">
+      <span class="brand-mark" aria-hidden="true">M</span>
+      Marquee
+    </a>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="primary-nav">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+    </button>
+    <ul class="nav-links" id="primary-nav">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="events.html">Events</a></li>
+      <li><a href="my-bookings.html" aria-current="page">My Bookings</a></li>
+    </ul>
+    <div class="nav-auth">
+      <span id="nav-guest">
+        <a class="link-plain" href="login.html">Log in</a>
+        <a class="btn btn-primary btn-sm" href="register.html" style="margin-left:14px;">Sign up</a>
+      </span>
+      <span id="nav-user" class="nav-user" hidden>
+        <span class="nav-user-name"><span class="nav-avatar" id="nav-user-avatar"></span><span id="nav-user-name"></span></span>
+        <button class="btn btn-outline-light btn-sm" id="logout-btn">Log out</button>
+      </span>
+    </div>
+  </nav>
+</header>
+
+<main id="main">
+  <div class="page-heading">
+    <div class="container">
+      <h1>My bookings</h1>
+      <p>Everything you've booked, in one place.</p>
+    </div>
+  </div>
+
+  <section class="section" style="padding-top:24px;">
+    <div class="container">
+
+      <div class="empty-state" id="bookings-login-prompt" hidden>
+        <div class="empty-icon">🔒</div>
+        <h3>Log in to see your bookings</h3>
+        <p>Your bookings are tied to your account. Log in or create one to view them here.</p>
+        <a class="btn btn-primary" href="login.html?redirect=my-bookings.html" style="margin-top:14px;">Log in</a>
+      </div>
+
+      <div class="empty-state" id="bookings-empty" hidden>
+        <div class="empty-icon">🎫</div>
+        <h3>No bookings yet</h3>
+        <p>When you book an event, it'll show up here with your ticket details and booking ID.</p>
+        <a class="btn btn-primary" href="events.html" style="margin-top:14px;">Browse events</a>
+      </div>
+
+      <div class="booking-list" id="bookings-list" aria-live="polite"></div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-bottom" style="border-top:none; padding-top:0;">
+      <span>© <span id="footer-year"></span> Marquee. Demo data only — no real bookings are made.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/script.js"></script>
+</body>
+</html>

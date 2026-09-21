@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Event details — Marquee</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="event-details">
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <nav class="navbar" aria-label="Main">
+    <a class="brand" href="index.html">
+      <span class="brand-mark" aria-hidden="true">M</span>
+      Marquee
+    </a>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="primary-nav">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+    </button>
+    <ul class="nav-links" id="primary-nav">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="events.html" aria-current="page">Events</a></li>
+      <li><a href="my-bookings.html">My Bookings</a></li>
+    </ul>
+    <div class="nav-auth">
+      <span id="nav-guest">
+        <a class="link-plain" href="login.html">Log in</a>
+        <a class="btn btn-primary btn-sm" href="register.html" style="margin-left:14px;">Sign up</a>
+      </span>
+      <span id="nav-user" class="nav-user" hidden>
+        <span class="nav-user-name"><span class="nav-avatar" id="nav-user-avatar"></span><span id="nav-user-name"></span></span>
+        <button class="btn btn-outline-light btn-sm" id="logout-btn">Log out</button>
+      </span>
+    </div>
+  </nav>
+</header>
+
+<main id="main">
+
+  <div id="details-not-found" hidden>
+    <div class="container">
+      <div class="empty-state mt-lg" style="margin:70px auto; max-width:520px;">
+        <div class="empty-icon">🔍</div>
+        <h3>Event not found</h3>
+        <p>The event you're looking for may have been removed, or the link is incorrect.</p>
+        <a class="btn btn-primary" href="events.html" style="margin-top:14px;">Browse all events</a>
+      </div>
+    </div>
+  </div>
+
+  <div id="details-root">
+    <div class="details-hero">
+      <div class="container">
+        <p class="breadcrumb"><a href="index.html">Home</a> / <a href="events.html">Events</a> / <span id="breadcrumb-title"></span></p>
+      </div>
+      <div class="container">
+        <div class="details-media">
+          <img id="details-image" src="" alt="">
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="details-wrap">
+        <article class="details-card">
+          <span class="details-category" id="details-category"></span>
+          <h1 id="details-title"></h1>
+          <p id="details-description"></p>
+
+          <div class="details-info-grid">
+            <div class="info-item">
+              <span class="info-icon">📅</span>
+              <div><b id="details-date"></b><span>Date</span></div>
+            </div>
+            <div class="info-item">
+              <span class="info-icon">⏰</span>
+              <div><b id="details-time"></b><span>Time</span></div>
+            </div>
+            <div class="info-item">
+              <span class="info-icon">📍</span>
+              <div><b id="details-location"></b><span id="details-city"></span></div>
+            </div>
+            <div class="info-item">
+              <span class="info-icon">🎟️</span>
+              <div><b id="seat-meter-label"></b><span>Availability</span></div>
+            </div>
+          </div>
+
+          <h3 style="font-size:1rem;">Organizer</h3>
+          <div class="organizer-row">
+            <span class="organizer-avatar" id="details-organizer-avatar"></span>
+            <div>
+              <b id="details-organizer-name" style="display:block;"></b>
+              <span style="color:var(--ink-mute); font-size:0.85rem;">Event organizer</span>
+            </div>
+          </div>
+        </article>
+
+        <aside class="booking-panel">
+          <div class="booking-price" id="booking-price"></div>
+
+          <div class="seat-meter">
+            <div class="seat-meter-bar"><div class="seat-meter-fill" id="seat-meter-fill" style="width:0%;"></div></div>
+          </div>
+
+          <button class="btn btn-primary btn-block" id="book-now-btn" type="button">Book now</button>
+
+          <div class="booking-alert" id="booking-alert" hidden></div>
+        </aside>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-bottom" style="border-top:none; padding-top:0;">
+      <span>© <span id="footer-year"></span> Marquee. Demo data only — no real bookings are made.</span>
+      <a class="link-plain" href="index.html">Back to home</a>
+    </div>
+  </div>
+</footer>
+
+<script src="js/script.js"></script>
+</body>
+</html>
