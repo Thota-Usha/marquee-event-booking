@@ -5,7 +5,7 @@
    API: http://localhost:5000
    ========================================================= */
 
-const API = "http://localhost:5000";
+const API = 'https://marquee-event-booking.onrender.com';
 
 let EVENTS = [];
 
