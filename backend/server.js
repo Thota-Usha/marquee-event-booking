@@ -1,16 +1,26 @@
 const express = require("express");
 const cors = require("cors");
 const dotenv = require("dotenv");
+const path = require("path");
 const { createClient } = require("@supabase/supabase-js");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 
 dotenv.config();
 
+const requiredEnv = ["SUPABASE_URL", "SUPABASE_SERVICE_ROLE_KEY", "JWT_SECRET"];
+const missingEnv = requiredEnv.filter((key) => !process.env[key]?.trim());
+if (missingEnv.length) {
+  console.error(`Missing required environment values: ${missingEnv.join(", ")}`);
+  console.error("Add them to backend/.env and restart the server.");
+  process.exit(1);
+}
+
 const app = express();
 
-app.use(cors());
+app.use(cors({ origin: "http://localhost:5000" }));
 app.use(express.json());
+app.use(express.static(path.join(__dirname, "..", "event-booking-website")));
 
 /* ================================
    SUPABASE CONNECTION
@@ -25,10 +35,8 @@ const supabase = createClient(
    HOME
 ================================ */
 
-app.get("/", (req, res) => {
-  res.json({
-    message: "Marquee Event Booking API is running"
-  });
+app.get("/api/health", (req, res) => {
+  res.json({ message: "Marquee Event Booking API is running" });
 });
 
 /* ================================
@@ -516,8 +524,8 @@ app.delete("/api/bookings/:bookingId", async (req, res) => {
    START SERVER
 ================================ */
 
-const PORT = process.env.PORT || 5000;
+const PORT = Number(process.env.PORT) || 5000;
 
-app.listen(PORT, '0.0.0.0', () => {
-  console.log(`Server running on port ${PORT}`);
+app.listen(PORT, "127.0.0.1", () => {
+  console.log(`Website and API running at http://localhost:${PORT}`);
 });
