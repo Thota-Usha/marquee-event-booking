@@ -5,7 +5,8 @@
    API: http://localhost:5000
    ========================================================= */
 
-const API = 'https://marquee-event-booking.onrender.com';
+// The frontend is served by the local Express server, so use same-origin API routes.
+const API = 'https://marquee-event-booking.vercel.app';
 
 let EVENTS = [];
 
