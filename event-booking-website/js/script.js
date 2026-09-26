@@ -5,8 +5,11 @@
    API: http://localhost:5000
    ========================================================= */
 
-// The frontend is served by the local Express server, so use same-origin API routes.
-const API = 'https://marquee-event-booking.vercel.app';
+// Use the local Express server during development and the deployed API for the Netlify site.
+const API = window.MARQUEE_API_URL ||
+    (["localhost", "127.0.0.1"].includes(window.location.hostname)
+        ? window.location.origin
+        : "https://marquee-event-booking.vercel.app");
 
 let EVENTS = [];
 
@@ -262,7 +265,7 @@ async function registerUser(name, email, password) {
         return {
             ok: false,
             error:
-                "Cannot connect to backend. Make sure node server.js is running."
+                "Could not reach the backend. Check the backend deployment and CORS settings."
         };
     }
 }
@@ -324,7 +327,7 @@ async function loginUser(email, password) {
         return {
             ok: false,
             error:
-                "Cannot connect to backend. Make sure node server.js is running."
+                "Could not reach the backend. Check the backend deployment and CORS settings."
         };
     }
 }
@@ -370,7 +373,7 @@ async function createBooking(userId, eventId) {
         return {
             ok: false,
             error:
-                "Cannot connect to backend. Make sure node server.js is running."
+                "Could not reach the backend. Check the backend deployment and CORS settings."
         };
     }
 }
@@ -472,7 +475,7 @@ async function cancelBooking(bookingId) {
 
         return {
             ok: false,
-            error: "Cannot connect to backend."
+            error: "Could not reach the backend. Check the backend deployment and CORS settings."
         };
     }
 }

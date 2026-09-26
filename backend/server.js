@@ -18,7 +18,25 @@ if (missingEnv.length) {
 
 const app = express();
 
-app.use(cors({ origin: "http://localhost:5000" }));
+const allowedOrigins = new Set([
+  "http://localhost:5000",
+  "http://127.0.0.1:5000",
+  "https://melodic-blancmange-968b0a.netlify.app",
+  ...(process.env.FRONTEND_ORIGINS || "")
+    .split(",")
+    .map((origin) => origin.trim())
+    .filter(Boolean)
+]);
+app.use(cors({
+  origin(origin, callback) {
+    // Allow requests without an Origin header (for local tools/health checks).
+    const isNetlifySite = origin && new URL(origin).hostname.endsWith(".netlify.app");
+    if (!origin || allowedOrigins.has(origin) || isNetlifySite) {
+      return callback(null, true);
+    }
+    return callback(new Error("Origin not allowed by CORS"));
+  }
+}));
 app.use(express.json());
 app.use(express.static(path.join(__dirname, "..", "event-booking-website")));
 
