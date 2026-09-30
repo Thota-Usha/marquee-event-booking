@@ -5,11 +5,8 @@
    API: http://localhost:5000
    ========================================================= */
 
-// Use the local Express server during development and the deployed API for the Netlify site.
-const API = window.MARQUEE_API_URL ||
-    (["localhost", "127.0.0.1"].includes(window.location.hostname)
-        ? window.location.origin
-        : "https://marquee-event-booking.vercel.app");
+// The Express server serves both the website and API from the same origin.
+const API = window.MARQUEE_API_URL || window.location.origin;
 
 let EVENTS = [];
 

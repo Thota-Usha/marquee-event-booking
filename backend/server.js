@@ -18,9 +18,14 @@ if (missingEnv.length) {
 
 const app = express();
 
+const vercelOrigins = [process.env.VERCEL_URL, process.env.VERCEL_PROJECT_PRODUCTION_URL]
+  .filter(Boolean)
+  .map((host) => host.startsWith("http") ? host : `https://${host}`);
+
 const allowedOrigins = new Set([
   "http://localhost:5000",
   "http://127.0.0.1:5000",
+  ...vercelOrigins,
   "https://melodic-blancmange-968b0a.netlify.app",
   ...(process.env.FRONTEND_ORIGINS || "")
     .split(",")
@@ -38,7 +43,7 @@ app.use(cors({
   }
 }));
 app.use(express.json());
-app.use(express.static(path.join(__dirname, "..", "event-booking-website")));
+app.use(express.static(path.join(__dirname, "public")));
 
 /* ================================
    SUPABASE CONNECTION
@@ -544,6 +549,6 @@ app.delete("/api/bookings/:bookingId", async (req, res) => {
 
 const PORT = Number(process.env.PORT) || 5000;
 
-app.listen(PORT, "127.0.0.1", () => {
+app.listen(PORT, "0.0.0.0", () => {
   console.log(`Website and API running at http://localhost:${PORT}`);
 });

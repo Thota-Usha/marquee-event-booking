@@ -12,6 +12,10 @@ Marquee is a full-stack event booking web application that allows users to explo
 
 For automatic server restarts during development, use `npm run dev` in `backend`.
 
+## Deploy to Vercel
+
+Import the GitHub repository into Vercel and set the project's **Root Directory** to `backend`. Add `SUPABASE_URL` and `SUPABASE_SERVICE_ROLE_KEY` as environment variables in Vercel, and set a private random `JWT_SECRET`. Deploy the project; Vercel's deployment URL serves both the website and API.
+
 ## 🚀 Features
 
 - User registration and login
@@ -54,7 +58,7 @@ marquee-event-booking/
 │   ├── package.json
 │   └── .env
 │
-├── event-booking-website/
+└── backend/public/
 │   ├── index.html
 │   ├── events.html
 │   ├── event-details.html
